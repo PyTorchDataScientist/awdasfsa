@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Multiple Choice Quiz with JavaScript</title>
+   
+  <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+ 
+        *, *:before, *:after {margin: 0; padding: 0; box-sizing: border-box;}
+        body {background: #2F2556; color: #B9B5C7; font: 14px 'Open Sans', sans-serif;}
+ 
+        .top { padding-right: 20px; background: #261F41; text-align: right; }
+        a { color: rgba(255,255,255,0.6); text-transform: uppercase; text-decoration: none; line-height: 42px; }
+ 
+        h1 {padding: 50px 0; font-weight: 400; text-align: center;}
+         
+        .main {margin: 0 auto; max-width: 500px;}
+        .main .quizsection {margin-bottom: 20px;}
+ </style>
+  
+</head>
+ 
+<body>
+ 
+<h1>Quiz</h1>
+ 
+<section class="main">
+ 
+<form name="quiz" action="javascript:check();" class="quizform">
+ 
+<div class="quizsection">
+ 
+ 
+    <h2>Вопрос #1. Какой лучший язык программирования на сегодняшний день?</h2>
+     
+    <div class="answer">
+        <input name="q1" value="value2" id="value1" type="radio" checked="checked" /> Python
+    </div>
+ 
+    <div class="answer">
+        <input name="q1" value="value1" id="value2" type="radio" /> JS
+    </div>
+ 
+    <div class="answer">
+        <input name="q1" value="value1" id="value3" type="radio" /> C#
+    </div>
+ 
+    <div class="answer">
+        <input name="q1" value="value1" id="value4" type="radio" /> C++
+    </div>
+ 
+</div>
+ 
+<div class="quizsection">
+ 
+    <h2>Вопрос #2. Какой самый лучший фреймворк на пайтон?</h2>
+ 
+    <div class="answer">
+        <input name="q2" value="value1" id="value1" type="radio" checked="checked" /> Pandas
+    </div>
+ 
+    <div class="answer">
+        <input name="q2" value="value2" id="value2" type="radio" /> Tensorflow
+    </div>
+ 
+    <div class="answer">
+        <input name="q2" value="value1" id="value3" type="radio" /> Matplotlib
+    </div>
+ 
+    <div class="answer">
+        <input name="q2" value="value1" id="value4" type="radio" /> Pytorch
+    </div>
+</div>
+ 
+<div class="quizsection">
+ 
+    <h2>Вопрос #3. Что из перечисленного является типом нейросетки?</h2>
+ 
+    <div class="answer">
+        <input name="q3" value="value1" id="value1" type="radio" checked="checked" /> Длинная НС
+    </div>
+ 
+    <div class="answer">
+        <input name="q3" value="value1" id="value2" type="radio" /> Дегенеративно-бесполезная НС
+    </div>
+ 
+    <div class="answer">
+        <input name="q3" value="value2" id="value3" type="radio" /> Генеративно-состязательная НС 
+    </div>
+ 
+    <div class="answer">
+        <input name="q3" value="value1" id="value4" type="radio" /> Факториальная НС
+    </div>
+ 
+</div>
+
+<div class="quizsection">
+ 
+    <h2>Вопрос #4. Какой брокер самый лучший в рф?</h2>
+ 
+    <div class="answer">
+        <input name="q4" value="value1" id="value1" type="radio" checked="checked" /> Тинькофф инвестиции
+    </div>
+ 
+    <div class="answer">
+        <input name="q4" value="value2" id="value2" type="radio" /> Втб инвестиции
+    </div>
+ 
+    <div class="answer">
+        <input name="q4" value="value1" id="value3" type="radio" /> Сбер инвестиции
+    </div>
+ 
+    <div class="answer">
+        <input name="q4" value="value1" id="value4" type="radio" /> Robinhood
+    </div>
+ 
+</div>
+
+<div class="quizsection">
+ 
+    <h2>Вопрос #5. 2+2 </h2>
+ 
+    <div class="answer">
+        <input name="q5" value="value2" id="value1" type="radio" checked="checked" /> 4
+    </div>
+ 
+    <div class="answer">
+        <input name="q5" value="value1" id="value2" type="radio" /> 5
+    </div>
+ 
+</div>
+ 
+<input value="Submit" type="submit" /> <input value="Reset" type="reset" />
+ 
+</form>
+ 
+</section>
+ 
+<script type="text/javascript">// <![CDATA[
+ 
+   var result;
+    
+   function check()
+ 
+   {
+ 
+      var question;
+      var value1;
+      var value2;
+       
+       
+      question = 1;
+      value1 = 0;
+      value2 = 0;
+       
+       
+      result = "";
+ 
+      var choice;
+       
+      for (question = 1; question <= 5; question++) {
+       
+         var q = document.forms['quiz'].elements['q'+question];
+ 
+            for (var i = 0; i < q.length; i++) {
+               if (q[i].checked) {
+                  choice = q[i].value;
+               }
+            }
+ 
+            if (choice == "value1") {
+               value1++;
+            }
+ 
+            if (choice == "value2") {
+               value2++;
+            }
+ 
+ 
+         }
+ 
+      if (value2 <= 2 ) {
+ 
+         // Нет правильных ответов
+         document.write(result = "ocenka2");
+ 
+      }
+ 
+      else if (value2 <= 3) {
+ 
+         // Один правильный ответ
+         document.write("ocenka3");
+ 
+      }
+ 
+      else if (value2 <= 4) {
+ 
+         // Два правильных ответа
+         document.write("ocenka4");
+ 
+      }
+ 
+      else if (value2 <= 5) {
+ 
+         // Три правильных ответа
+         document.write("ocenka5");
+ 
+      }
+ 
+ 
+      else {
+        document.write("0 ballov!!!!");
+      }
+   }
+ 
+// ]]></script>
+ 
+</body>
+</html>

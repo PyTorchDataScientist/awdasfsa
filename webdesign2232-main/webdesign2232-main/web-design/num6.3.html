@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>тест JS</title>
+</head>
+<body>
+    <script>
+        let a=Number(prompt('Введите элемент массива 1'));
+        let b=Number(prompt('Введите массив 2'));
+        let c=Number(prompt('Введите массив 3'));
+        let d=Number(prompt('Введите массив 4'));
+        let e=Number(prompt('Введите массив 5'));
+        let myArray = new Array();
+        myArray[0]=a;
+        myArray[1]=b;
+        myArray[2]=c;
+        myArray[3]=d;
+        myArray[4]=e;
+        min = myArray[0];
+        max = min;
+        for (i = 0; i < 5; ++i) {
+        if (myArray[i] > max) max = myArray[i];
+        if (myArray[i] < min) min = myArray[i];
+        }
+        document.write("Максимальный элемент ", max);
+        document.write("; Минимальный элемент ", min);
+    </script>
+</body>
+</html>
